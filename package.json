@@ -1,0 +1,41 @@
+{
+  "name": "webservice-by-copilot",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": ["node.js", "koa.js", "backend", "server", "web service", "API", "REST", "HTTP"],
+  "author": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.js' --exec 'node' src/index.js",
+    "lint": "eslint src/**/*.js",
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "node scripts/verify-commit.js"
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs}": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "koa": "^2.15.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "lint-staged": "^15.2.0",
+    "nodemon": "^3.0.3",
+    "rollup": "^4.9.6",
+    "simple-git-hooks": "^2.9.0"
+  },
+  "license": "ISC"
+}
